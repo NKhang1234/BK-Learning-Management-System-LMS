@@ -1,0 +1,15 @@
+{
+  "name": "bk-learning-management-system-lms",
+  "version": "1.0.0",
+  "description": "This is a Solo Project based on Concept of Oops - STUDENT LEARNING MANAGEMENT SYSTEM. There will be two kinds of users student, admin. login and signup functionality for both kind of user. Admin have special access.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lms",
+    "bk"
+  ],
+  "author": "",
+  "license": "ISC"
+}
