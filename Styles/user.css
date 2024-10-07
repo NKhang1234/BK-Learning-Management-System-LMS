@@ -12,9 +12,11 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0px 20px 0px 10px;
-  background-color: white;
+  background-color: #0f6cbf;
   border-bottom: 0.5px solid gainsboro;
+  color: white;
 }
+
 .nav > div {
   display: flex;
   align-items: center;
@@ -113,4 +115,12 @@ form > div > button {
   font-weight: 600;
   letter-spacing: 1px;
   margin-top: 5px;
+}
+.nav > * {
+  color: white
+}
+
+
+.nav * {
+  color: white;
 }
