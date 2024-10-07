@@ -59,7 +59,7 @@ class lectureList {
   }
   filterByDate(values) {
     let database = data.filter((elem) => {
-      return elem.schedule == values;
+      return elem.schedule >= values;
     });
     document.querySelector(".section").innerHTML = "";
     database.forEach((elem, index) => {

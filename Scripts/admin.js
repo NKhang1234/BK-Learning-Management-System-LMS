@@ -1,3 +1,4 @@
+
 let data = JSON.parse(localStorage.getItem("users")) || [];
 let sData = JSON.parse(localStorage.getItem("users")) || [];
 class userList {
@@ -33,6 +34,7 @@ class userList {
     }
   }
   addStudentData(e, p, t) {
+    
     this.email = e;
     this.pass = p;
     this.usertype = t;
@@ -46,13 +48,42 @@ function showUser() {
   list.showUserList();
 }
 showUser();
+
+function validate(email, pass) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z0-9\d@$!%*?&]{8,}$/;
+  // Contain at least 1 number, 1 uppercase, 1 lowercase, 1 special digit and at least 8 digits.
+  if (!email.match(emailRegex)) {
+    alert("Wrong email format");
+    return false;
+  } else if (!pass.match(passRegex)) {
+    alert("The password must contain at least 1 number, 1 uppercase letter, 1 lowercase letter, 1 special character and at least 8 characters");
+    return false;
+  }
+  for(let i = 0; i< data.length;++i) {
+    if (data[i].email === email) {
+      alert("The email has been used by another user");
+      return false;
+    } else if (data[i].pass === pass) {
+      alert("The password has been used by another user");
+      return false;
+    }
+  }
+  return true;
+}
+
 function addStudent() {
   event.preventDefault();
   let e = document.getElementById("email").value;
   let p = document.getElementById("pass").value;
   let t = document.getElementById("type").value;
-  let student = new userList();
-  student.addStudentData(e, p, t);
+
+  if(validate(e,p)) {
+    let student = new userList();
+    student.addStudentData(e, p, t);
+  } else {
+    alert("Please fill the information again");
+  }
 }
 function showData() {
   let emailData = JSON.parse(localStorage.getItem("currentUser"));
